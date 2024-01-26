@@ -1,4 +1,4 @@
-# Meu primeiro projeto ogit
+# Meu primeiro projeto no git
 
 - NextJs
-- ReactJs 
+- ReactJs
