@@ -22,7 +22,7 @@ function Investments() {
     const [valorDebenture, setValorDebenture] = useState();
     const [valorTesouro, setValorTesouro] = useState();
     const [valorPoupanca, setValorPoupanca] = useState();
-    const [valorCDBInvestido, setValorCDBInvestido] = useState(500);
+    const [valorCDBInvestido, setValorCDBInvestido] = useState(0);
     const [valorDebentureInvestido, setValorDebentureInvestido] = useState(0);
     const [valorTesouroInvestido, setValorTesouroInvestido] = useState(0);
     const [valorPoupancaInvestido, setValorPoupancaInvestido] = useState(0);
@@ -32,8 +32,17 @@ function Investments() {
     const [ativarPoupanca, setAtivarPoupanca] = useState(false);
     const [valorInvestido, setValorInvestido] = useState(0);
 
+// calculo tesouro direto em forma deimal
+
+const taxaAnual = 10.71 / 100; 
+
+const anos =7;
 
 
+const taxaMensal = Math.pow((1+taxaAnual),1/12) -1; 
+
+const meses = 82
+const montante = valorTesouroInvestido * Math.pow(1 + taxaMensal, meses);
 
       const handleChangeValorCDB = (event) => {
         setValorCDB(event.target.value);
@@ -315,18 +324,18 @@ function Investments() {
                     <CardContent align='center'>
                         <AccountBalanceIcon fontSize="large" style={{color:'#0df90d'}}/>
                         <Typography sx={{ fontSize: 20 , color:'#0df90d'}}>
-                            Tesouro Direto
+                        TESOURO PREFIXADO 2031
                         </Typography>
                         <br></br>
                         <Typography sx={{ fontSize: 16 }}>
                             Valor Investido: <b style={{color:'#0df90d'}}>R$ {valorTesouroInvestido}</b> <br></br>
-                            Rendimento Esperado: <b style={{color:'#0df90d'}}>R$ {valorTesouroInvestido * 0.13}</b> 
+                            Rendimento Esperado: <b style={{color:'#0df90d'}}>R$ {montante.toFixed(2) }</b> 
                         </Typography>
                         <br></br>
                         <Typography sx={{fontSize: 13}}>
                             <b style={{color:'#0df90d'}}>CARACTERÍSTICAS</b> <br/>
                             Renda fixa.<br/>
-                            Taxa pré-fixada de 12% a.a.<br/>
+                            Taxa pré-fixada de 10,71% a.a.<br/>
                             Prazo vencimento 12 meses.
                         </Typography>
                         <br></br>
@@ -377,7 +386,7 @@ function Investments() {
                         <Typography sx={{fontSize: 13}}>
                             <b style={{color:'#fa16fd'}}>CARACTERÍSTICAS</b> <br/>
                             Renda fixa.<br/>
-                            Taxa pré-fixada de 12% a.a.<br/>
+                            Taxa pré-fixada de 6% a.a.<br/>
                             Prazo vencimento 12 meses.
                         </Typography>
                         <br></br>

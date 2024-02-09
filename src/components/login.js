@@ -22,7 +22,7 @@ function SignIn() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [erroUsuario, setErroUsuario] = useState('');
-  const [exibirLogin, setExibirLogin] = useState(true);
+  const [exibirLogin, setExibirLogin] = useState(false);
 
 //  cores do tema escuro, caso queira alterar, só alterar aqui
   const darkTheme = createTheme({
@@ -74,11 +74,11 @@ function SignIn() {
 
 
     if(encontrarUsuario == null) {
-      setErroUsuario('ja ganhou tan tan ja ganhou tan tan')
+      setErroUsuario('Usuário ou Senha inválida!')
     }
     else {
       if(password != encontrarUsuario.password) {
-        setErroUsuario('ja ganhou tan tan ja ganhou tan tan')
+        setErroUsuario('Usuário ou Senha inválida!')
       }
       if(password == encontrarUsuario.password) {
         setExibirLogin(false)
@@ -126,7 +126,7 @@ function SignIn() {
               required
               fullWidth
               id="email"
-              label="Email"
+              label="E-mail"
               autoFocus
               sx={{ bgcolor: 'background.paper' }}
               value={email}
@@ -138,7 +138,7 @@ function SignIn() {
               required
               fullWidth
               id="password"
-              label="Password"
+              label="senha"
               type="password"
               sx={{ bgcolor: 'background.paper' }}
               value={password}
