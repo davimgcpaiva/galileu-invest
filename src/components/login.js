@@ -22,7 +22,7 @@ function SignIn() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [erroUsuario, setErroUsuario] = useState('');
-  const [exibirLogin, setExibirLogin] = useState(false);
+  const [exibirLogin, setExibirLogin] = useState(true);
 
 //  cores do tema escuro, caso queira alterar, só alterar aqui
   const darkTheme = createTheme({
